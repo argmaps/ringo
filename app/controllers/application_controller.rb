@@ -9,9 +9,6 @@ class ApplicationController < ActionController::Base
   end
 
   def not_authenticated
-    respond_to do |format|
-      format.html { redirect_to login_url, :alert => "To access this page, please log in." }
-      format.json { render :json => {error: 'Please authenticate.', uri: login_url}, :status => :unauthorized }
-    end
+    redirect_to sign_in_path
   end
 end
