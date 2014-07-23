@@ -1,0 +1,20 @@
+<%= bookmarklet_stylesheet_link_tag "bookmarklet" %>
+
+<p id="am-bookmarklet-message">
+  <span>
+    <a id="am-logo" href="http://argmaps.com/home" target="_blank"></a> <span id="am-bookmarklet-message-content"> Saving...</span>
+  </span>
+</p>
+
+<script type="text/javascript">
+  (function() {
+    var uri = '<%= @uri %>',
+        content = window.getSelection ? window.getSelection().toString() : document.selection.createRange().text,
+        params = "uri="+uri+"&content="+content,
+        baseUrl = "<%= persist_via_bookmarklet_selections_url %>",
+        requestUrl = baseUrl + '?' + params;
+    am_bookmarklet.support.load_script(requestUrl, function() {
+      // script loaded
+    });
+  })();
+</script>

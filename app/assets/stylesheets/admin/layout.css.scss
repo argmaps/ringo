@@ -1,0 +1,41 @@
+$footer-height: 60px;
+
+#main-container {
+  padding-bottom: $footer-height;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 500px;
+  height: $footer-height;
+}
+
+/* For mobiles & any other devices < 768px wide */
+@media (max-width: 768px) {
+  #content, body.main-nav-opened #content {
+    margin-left: 0;
+  }
+
+  #main-nav-bg {
+    display: none;
+  }
+
+  #main-nav, body.main-nav-opened #main-nav {
+    display: block;
+    position: inherit;
+    width: auto;
+
+    .navigation > .nav > li span {
+      display: inline !important;
+    }
+
+    .navigation .search {
+      display: none;
+    }
+  }
+
+  body.main-nav-closed #main-nav{
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+(function() {
+  var updateMsg = function() {
+    var el = document.querySelector('#am-bookmarklet-message-content');
+    var html = 'Saved! <a href="<%= selection_url(@selection) %>" target="_blank">Open in <tt>argmaps</tt>.</a>';
+    el.innerHTML = html;
+  };
+  updateMsg();
+
+  var hide = function() {
+    var el = document.querySelector('#am_bookmarklet_container');
+    el.classList.add('am-hide');
+    setTimeout(function() {
+      el.remove();
+    }, 3000);
+  };
+  setTimeout(hide, 10000);
+})();

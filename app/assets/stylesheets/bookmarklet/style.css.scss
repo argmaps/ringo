@@ -1,0 +1,88 @@
+$navbarBackground: #F9F9F9;
+$navbarBackgroundHighlight: #F2F2F2;
+$navbarBorder: #D4D4D4;
+
+@mixin gradient-vertical($startColor: #555, $endColor: #333) {
+  background-color: mix($startColor, $endColor, 60%);
+  background-image: -moz-linear-gradient(top, $startColor, $endColor); // FF 3.6+
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), to($endColor)); // Safari 4+, Chrome 2+
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor); // Safari 5.1+, Chrome 10+
+  background-image: -o-linear-gradient(top, $startColor, $endColor); // Opera 11.10
+  background-image: linear-gradient(to bottom, $startColor, $endColor); // Standard, IE10
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($startColor)}', endColorstr='#{ie-hex-str($endColor)}', GradientType=0); // IE9 and down
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin border-bottom-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+      -moz-border-radius-bottomright: $radius;
+          border-bottom-right-radius: $radius;
+}
+@mixin border-bottom-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+      -moz-border-radius-bottomleft: $radius;
+          border-bottom-left-radius: $radius;
+}
+@mixin border-bottom-radius($radius) {
+  @include border-bottom-right-radius($radius);
+  @include border-bottom-left-radius($radius);
+}
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+#am_bookmarklet_container {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999999999; /* otherwise elements appear over it on nytimes.com */
+  @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
+  border: 2px solid $navbarBorder;
+  border-top-width: 1px;
+  @include border-bottom-radius(4px);
+  @include box-shadow(#{0 5px 5px rgba(0,0,0,.8)});
+
+  /* for hiding */
+  -webkit-transition-duration: 2s;
+
+  &.am-hide {
+    -webkit-transition-property: opacity;
+    opacity: 0;
+  }
+
+  a {
+    color: #0088cc;
+    text-decoration: none;
+  }
+
+  #am-logo {
+    background-color: black;
+    background-size: 80% 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 93.6px;
+    height: 20.8px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    @include border-radius(4px);
+  }
+
+  #am-bookmarklet-message {
+    padding: 5px;
+    font-size: 14px;
+    margin: 0 auto;
+    text-align: center;
+    color: #000;
+  }
+}
