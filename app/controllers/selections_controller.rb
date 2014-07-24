@@ -1,7 +1,7 @@
 class SelectionsController < ApplicationController
   include SelectionsHelper
   skip_before_filter :require_login, :only => [:create_via_bookmarklet]
-  skip_before_filter :verify_authenticity_token, only: [:create_via_bookmarklet]
+  skip_before_filter :verify_authenticity_token, only: [:create_via_bookmarklet, :persist_via_bookmarklet]
   before_action :set_selection, only: [:show, :destroy]
 
   # GET /selections
