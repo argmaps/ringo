@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140723083419) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "selections", force: true do |t|
     t.text     "content",     null: false
     t.integer  "web_page_id", null: false
@@ -21,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140723083419) do
     t.integer  "user_id"
   end
 
-  add_index "selections", ["user_id"], name: "index_selections_on_user_id"
+  add_index "selections", ["user_id"], name: "index_selections_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                        null: false
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 20140723083419) do
     t.datetime "remember_me_token_expires_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token", using: :btree
 
   create_table "web_pages", force: true do |t|
     t.string   "uri",        null: false
