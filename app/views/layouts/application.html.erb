@@ -12,121 +12,97 @@
         <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     </head>
     <body>
-      <header>
-        <nav class="navbar navbar-default">
+      <div id="outer-wrapper" class="row col-md-10 col-md-offset-1">
+        <header>
+          <nav class="navbar navbar-default">
 
-          <!-- application logo -->
-          <%= link_to dashboard_path, class: 'navbar-brand' do %>
-            <!-- application logo visible on large screens -->
-            <h1 style="color: #fff; font-size: 21px; margin: 0;" class="logo">&#8634; Ringo</h1>
-            <!-- application logo visible on small screens -->
-            <h1 style="color: #fff; font-size: 21px; margin: 0;" class="logo-xs">&#8634; Ringo</h1>
-          <% end %>
+            <!-- application logo -->
+            <%= link_to dashboard_path, class: 'navbar-brand' do %>
+              <!-- application logo visible on large screens -->
+              <h1 style="color: #fff; font-size: 21px; margin: 0;" class="logo">&#8634; Ringo</h1>
+              <!-- application logo visible on small screens -->
+              <h1 style="color: #fff; font-size: 21px; margin: 0;" class="logo-xs">&#8634; Ringo</h1>
+            <% end %>
 
-          <!-- main nav toggler (show/hide) -->
-          <a class="toggle-nav btn pull-left" href="#">
-            <i class="icon-reorder"></i>
-          </a>
+            <!-- dropdowns -->
+            <ul class="nav">
 
-          <!-- dropdowns -->
-          <ul class="nav">
-
-            <!-- light dropdown -->
-            <li class="dropdown light only-icon">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <!-- light dropdown -->
+              <li class="dropdown light only-icon">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <!-- ... -->
+                </a>
                 <!-- ... -->
-              </a>
-              <!-- ... -->
-            </li>
+              </li>
 
-            <!-- medium dropdown & widget -->
-            <li class="dropdown medium only-icon widget">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <!-- medium dropdown & widget -->
+              <li class="dropdown medium only-icon widget">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <!-- ... -->
+                </a>
                 <!-- ... -->
-              </a>
-              <!-- ... -->
-            </li>
+              </li>
 
-            <!-- dark dropdown & user menu -->
-            <li class="dropdown dark user-menu">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="user-name"><i class="icon-user"></i> <%= current_user.email %></span>
-                <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <%= link_to settings_path do %>
-                    <i class="icon-cog"></i> Settings
-                  <% end %>
-                </li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to sign_out_path do %>
-                    <i class="icon-signout"></i> Sign out
-                  <% end %>
-              </ul>
-            </li>
-          </ul>
+              <!-- dark dropdown & user menu -->
+              <li class="dropdown dark user-menu">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="user-name"><i class="icon-user"></i> <%= current_user.email %></span>
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <%= link_to settings_path do %>
+                      <i class="icon-cog"></i> Settings
+                    <% end %>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <%= link_to sign_out_path do %>
+                      <i class="icon-signout"></i> Sign out
+                    <% end %>
+                </ul>
+              </li>
+            </ul>
 
-          <!-- search form - hidden on phone -->
-          <form action="search_results.html" class="navbar-form navbar-right hidden-xs" method="get">
-            <button class="btn btn-link icon-search" name="button" type="submit"></button>
-            <div class="form-group">
-              <input value="" class="form-control" placeholder="Search..." autocomplete="off" id="q_header" name="q" type="text">
-            </div>
-          </form>
-        </nav>
-      </header>
+          </nav>
+        </header>
 
-      <div id="wrapper">
-        <div id="main-nav-bg"></div>
-        <%= render 'shared/main_nav' %>
+        <div id="wrapper">
+          <section id="content">
+            <div id="main-container" class="container">
+              <div class="row" id="content-wrapper">
+                <div class="col-xs-12">
 
-
-        <section id="content">
-          <div id="main-container" class="container">
-            <div class="row" id="content-wrapper">
-              <div class="col-xs-12">
-
-                <!-- page header container -->
-                <div class="row">
-                  <div class="col-sm-12">
-                    <div class="page-header">
-                      <h1 class="pull-left">
-                        <% if content_for? :page_header_title %>
-                          <i class="icon-th"></i>
-                          <span>
-                            <%= yield :page_header_title %>
-                          </span>
-                        <% elsif content_for? :breadcrumb %>
-                          <%= yield :breadcrumb %>
-                        <% end %>
-                      </h1>
+                  <!-- page header container -->
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="page-header">
+                        <h1 class="pull-left">
+                          <% if content_for? :page_header_title %>
+                            <i class="icon-th"></i>
+                            <span>
+                              <%= yield :page_header_title %>
+                            </span>
+                          <% elsif content_for? :breadcrumb %>
+                            <%= yield :breadcrumb %>
+                          <% end %>
+                        </h1>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="row">
-                  <div class="col-sm-12">
-                    <%= yield %>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <%= yield %>
+                    </div>
                   </div>
-                </div>
 
+                </div>
               </div>
+
             </div>
-
-            <footer id="footer">
-              <div class="footer-wrapper">
-                <div class="row">
-                  <div class="col-sm-6 text">
-                    Copyright © Ringo Inc. 2014
-                  </div>
-                </div>
-              </div>
-            </footer>
-
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
 
       <%= yield :scripts %>

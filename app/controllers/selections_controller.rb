@@ -44,7 +44,12 @@ class SelectionsController < ApplicationController
   # DELETE /selections/1
   def destroy
     @selection.destroy
-    redirect_to selections_url, notice: 'Selection was successfully destroyed.'
+    respond_to do |format|
+      format.js
+      format.html {
+        redirect_to selections_url, notice: 'Selection was successfully destroyed.'
+      }
+    end
   end
 
   private

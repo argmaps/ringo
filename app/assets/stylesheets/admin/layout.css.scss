@@ -1,41 +1,21 @@
-$footer-height: 60px;
-
-#main-container {
-  padding-bottom: $footer-height;
+.navbar {
+  text-align: center;
 }
 
-#footer {
+.navbar-brand {
+  float: none;
+}
+
+header .navbar > .nav {
   position: absolute;
-  bottom: 0;
-  width: 500px;
-  height: $footer-height;
+  top: 0;
+  right: 15px;
 }
 
-/* For mobiles & any other devices < 768px wide */
-@media (max-width: 768px) {
-  #content, body.main-nav-opened #content {
-    margin-left: 0;
-  }
+header, #wrapper {
+  @include box-shadow(#{0 1px 3px rgba(0,0,0,0.7)});
+}
 
-  #main-nav-bg {
-    display: none;
-  }
-
-  #main-nav, body.main-nav-opened #main-nav {
-    display: block;
-    position: inherit;
-    width: auto;
-
-    .navigation > .nav > li span {
-      display: inline !important;
-    }
-
-    .navigation .search {
-      display: none;
-    }
-  }
-
-  body.main-nav-closed #main-nav{
-    display: none;
-  }
+#content {
+  margin-left: 0;
 }
