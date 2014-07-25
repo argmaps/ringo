@@ -1,7 +1,7 @@
 (function() {
   var updateMsg = function() {
     var el = document.querySelector('#am-bookmarklet-message-content');
-    var html = 'Saved! <a href="<%= selection_url(@selection) %>" target="_blank">Open in <tt>ringo</tt>.</a>';
+    var html = 'Saved! <a href="<%= dashboard_url %>" target="_blank">Open <tt>ringo</tt>.</a>';
     el.innerHTML = html;
   };
   updateMsg();
