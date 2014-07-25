@@ -1,4 +1,10 @@
-<%= page_header_title 'Quotes' %>
+<%= content_for :page_header_title do %>
+  Quotes
+  <button id="copy-all" class="btn" title='Copy all quotes to clipboard.'>
+    <i class="icon-copy"></i> Copy all quotes to clipboard
+  </button>
+<% end %>
+
 <div class="row">
   <div class="col-sm-12">
     <table class="table">
@@ -13,22 +19,22 @@
           <th id="actions-header"></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="quotes">
         <% @selections.each do |selection| %>
           <tr>
             <td>
-              <p><q id="selection-<%= selection.id %>" class="selection-content"><%= selection.content %></q></p>
+              <p id="selection-<%= selection.id %>" class="selection-content">&ldquo;<%= selection.content %>&rdquo;</p>
               <%= link_to selection.web_page.uri, selection.web_page.uri, class: 'selection-uri' %></td>
             </td>
-            <td><%= selection.created_at.in_time_zone.strftime('%_m/%d/%y') %></time></td>
+            <td class='selection-saved-at'><%= selection.created_at.in_time_zone.strftime('%_m/%d/%y') %></td>
 
             <td>
               <div class="text-right">
-                <button class="btn btn-xs copy-to-clipboard" data-clipboard-target='selection-<%= selection.id %>' title='Copy highlight to clipboard.'>
+                <button class="btn btn-xs copy-to-clipboard" data-clipboard-target='selection-<%= selection.id %>' title='Copy quote to clipboard.'>
                   <i class="icon-copy"></i> Copy
                 </button>
 
-                <%= link_to selection, method: :delete, remote: true, data: { confirm: 'Delete this highlight?' }, class: 'btn btn-danger btn-xs' do %>
+                <%= link_to selection, method: :delete, remote: true, data: { confirm: 'Delete this quote?' }, class: 'btn btn-danger btn-xs' do %>
                   <i class="icon-remove"></i>
                 <% end %>
               </div>
@@ -45,6 +51,22 @@
 <script>
   $(document).ready(function() {
     new ZeroClipboard($('.copy-to-clipboard'));
+
+    var $copyAll = $('#copy-all'),
+        allQuotes = '';
+    $('#quotes tr').each(function(i, el) {
+      var $el = $(el),
+          quote = $el.find('.selection-content').text(),
+          uri = $el.find('.selection-uri').text(),
+          savedAt = $el.find('.selection-saved-at').text(),
+          CR = String.fromCharCode(13),
+          allTogether = quote + CR + uri + CR + savedAt + CR + CR;
+
+      allQuotes = allQuotes + allTogether;
+    });
+
+    $copyAll.attr('data-clipboard-text', allQuotes);
+    new ZeroClipboard($copyAll);
   });
 </script>
 <% end %>
