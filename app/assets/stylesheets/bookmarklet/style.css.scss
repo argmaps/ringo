@@ -66,18 +66,6 @@ $navbarBorder: #D4D4D4;
     text-decoration: none;
   }
 
-  #am-logo {
-    background-color: black;
-    background-size: 80% 80%;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 93.6px;
-    height: 20.8px;
-    display: inline-block;
-    vertical-align: text-bottom;
-    @include border-radius(4px);
-  }
-
   #am-bookmarklet-message {
     padding: 5px;
     font-size: 14px;
