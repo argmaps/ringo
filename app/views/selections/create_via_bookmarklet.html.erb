@@ -9,11 +9,11 @@
 <script type="text/javascript">
   (function() {
     var uri = '<%= @uri %>',
-        content = window.getSelection ? window.getSelection().toString() : document.selection.createRange().text,
-        params = "uri="+uri+"&content="+content,
+        selection = window.getSelection ? window.getSelection().toString() : document.selection.createRange().text,
+        params = "uri="+uri+"&content="+selection,
         baseUrl = "<%= persist_via_bookmarklet_selections_url %>",
         requestUrl = baseUrl + '?' + params;
-    if (!content) document.location = '<%= root_url %>';
+    if (!selection) document.location = '<%= root_url %>';
     else am_bookmarklet.support.load_script(requestUrl, function() {
       // script loaded
     });
