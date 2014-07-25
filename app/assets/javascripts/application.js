@@ -19,6 +19,7 @@
 //= require flatty/theme
 //
 //= require zeroclipboard
+//= require browser_timezone_rails/application.js
 //
 //= require vendor/nprogress
 //
