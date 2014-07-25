@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create]
 
   def new
+    return redirect_to dashboard_path if current_user
     @user = User.new
     render :new, layout: 'outer_admin'
   end

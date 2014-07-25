@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'sessions#new'
+  root 'users#new'
 
   get "/signin" => "sessions#new", :as => :sign_in
   get "/signout" => "sessions#destroy", :as => :sign_out
