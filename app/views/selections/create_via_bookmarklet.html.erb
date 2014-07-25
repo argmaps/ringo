@@ -13,7 +13,8 @@
         params = "uri="+uri+"&content="+content,
         baseUrl = "<%= persist_via_bookmarklet_selections_url %>",
         requestUrl = baseUrl + '?' + params;
-    am_bookmarklet.support.load_script(requestUrl, function() {
+    if (!content) document.location = '<%= root_url %>';
+    else am_bookmarklet.support.load_script(requestUrl, function() {
       // script loaded
     });
   })();
