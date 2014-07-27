@@ -15,11 +15,11 @@ class SelectionsController < ApplicationController
 
   def create_via_bookmarklet
     if logged_in? == false
-      render_bookmarklet(:am_bookmarklet, 'authenticate_for_bookmarklet')
+      render_bookmarklet(:ringo_bookmarklet, 'authenticate_for_bookmarklet')
       return
     else
       @uri = params[:uri]
-      render_bookmarklet(:am_bookmarklet, 'create_via_bookmarklet')
+      render_bookmarklet(:ringo_bookmarklet, 'create_via_bookmarklet')
     end
   end
 

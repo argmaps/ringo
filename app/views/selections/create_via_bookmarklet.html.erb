@@ -1,8 +1,8 @@
 <%= bookmarklet_stylesheet_link_tag "bookmarklet" %>
 
-<p id="am-bookmarklet-message">
+<p id="ringo-bookmarklet-message">
   <span>
-    <span id="am-bookmarklet-message-content"> Saving to Ringo...</span>
+    <span id="ringo-bookmarklet-message-content"> Saving to Ringo...</span>
   </span>
 </p>
 
@@ -14,7 +14,7 @@
         baseUrl = "<%= persist_via_bookmarklet_selections_url %>",
         requestUrl = baseUrl + '?' + params;
     if (!selection) document.location = '<%= root_url %>';
-    else am_bookmarklet.support.load_script(requestUrl, function() {
+    else ringo_bookmarklet.support.load_script(requestUrl, function() {
       // script loaded
     });
   })();

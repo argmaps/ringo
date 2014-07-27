@@ -1,13 +1,13 @@
 (function() {
   var updateMsg = function() {
-    var el = document.querySelector('#am-bookmarklet-message-content');
+    var el = document.querySelector('#ringo-bookmarklet-message-content');
     var html = "Sorry, can't save this page right now. Please try again later.";
     el.innerHTML = html;
   };
   updateMsg();
 
   var hide = function() {
-    var el = document.querySelector('#am_bookmarklet_container');
+    var el = document.querySelector('#ringo_bookmarklet_container');
     el.classList.add('am-hide');
     setTimeout(function() {
       el.remove();

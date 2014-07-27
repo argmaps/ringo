@@ -5,8 +5,8 @@
     </div>
     <br />
 
-    <div id="am-bookmarklet-well" class="col-md-3 well" style="text-align: center">
-      <a id="am-bookmarklet" class="btn btn-small" href="<%= RailsBookmarklet.compile_invocation_script(create_via_bookmarklet_selections_url, {
+    <div class="col-md-3 well" style="text-align: center">
+      <a class="btn btn-small" href="<%= RailsBookmarklet.compile_invocation_script(create_via_bookmarklet_selections_url, {
         :error => 'Uh-oh, something went wrong.',
         :params => {
           "uri" => "'+encodeURIComponent(d.location)+'"
@@ -15,7 +15,7 @@
     </div>
 
     <div style="clear: both">
-      Then, whenever you want to save some text to Ringo, select it and click the <span id="am-bookmarklet" class="btn btn-small">➜ Ringo</span> button in your bookmarks bar, and it will be saved to your Ringo account.
+      Then, whenever you want to save some text to Ringo, select it and click the <span class="btn btn-small">➜ Ringo</span> button in your bookmarks bar, and it will be saved to your Ringo account.
     </div>
 
   </div>
@@ -31,7 +31,7 @@
     <li>
       Tap on the field below and press down until some text is selected in a blue overlay. Adjust this blue overlay to cover all the code in the field, then click 'Copy'.
       <br />
-      <p id="am-bookmarklet-code" class="well" style="word-wrap: break-word"><%= RailsBookmarklet.compile_invocation_script(create_via_bookmarklet_selections_url, {
+      <p class="well" style="word-wrap: break-word"><%= RailsBookmarklet.compile_invocation_script(create_via_bookmarklet_selections_url, {
         :error => 'Uh-oh, something went wrong.',
         :params => {
           "uri" => "'+encodeURIComponent(d.location)+'"
