@@ -1,4 +1,4 @@
-<div class="hidden-sm">
+<div class="visible-lg">
   <div class="col-md-8">
     <div>
       Drag the Ringo bookmarklet below to the bookmarks bar in your browser.
@@ -21,7 +21,7 @@
   </div>
 </div>
 
-<div class="visible-sm">
+<div class="hidden-lg">
   <p>
     The Ringo bookmarklet saves whatever text you have highlighted to Ringo. Follow the directions below to install the bookmarklet.
   </p>
@@ -31,7 +31,7 @@
     <li>
       Tap on the field below and press down until some text is selected in a blue overlay. Adjust this blue overlay to cover all the code in the field, then click 'Copy'.
       <br />
-      <p id="am-bookmarklet-code" class="well"><%= RailsBookmarklet.compile_invocation_script(create_via_bookmarklet_selections_url, {
+      <p id="am-bookmarklet-code" class="well" style="word-wrap: break-word"><%= RailsBookmarklet.compile_invocation_script(create_via_bookmarklet_selections_url, {
         :error => 'Uh-oh, something went wrong.',
         :params => {
           "uri" => "'+encodeURIComponent(d.location)+'"
