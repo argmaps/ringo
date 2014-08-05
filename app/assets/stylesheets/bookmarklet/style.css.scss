@@ -46,7 +46,7 @@ $navbarBorder: #D4D4D4;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999999999; /* otherwise elements appear over it on nytimes.com */
+  z-index: 99999999999; /* otherwise elements appear over it on nytimes.com */
   @include gradient-vertical($navbarBackgroundHighlight, $navbarBackground);
   border: 2px solid $navbarBorder;
   border-top-width: 1px;
