@@ -13,9 +13,12 @@
         params = "uri="+uri+"&content="+selection,
         baseUrl = "<%= persist_via_bookmarklet_selections_url %>",
         requestUrl = baseUrl + '?' + params;
-    if (!selection) document.location = '<%= root_url %>';
-    else ringo_bookmarklet.support.load_script(requestUrl, function() {
-      // script loaded
-    });
+    if (!selection) {
+      document.location = '<%= root_url %>';
+    } else {
+      ringo_bookmarklet.support.load_script(requestUrl, function() {
+        // script loaded
+      });
+    }
   })();
 </script>
