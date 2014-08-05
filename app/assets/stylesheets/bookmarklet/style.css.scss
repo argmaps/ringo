@@ -56,7 +56,7 @@ $navbarBorder: #D4D4D4;
   /* for hiding */
   -webkit-transition-duration: 2s;
 
-  &.am-hide {
+  &.hidden {
     -webkit-transition-property: opacity;
     opacity: 0;
   }
