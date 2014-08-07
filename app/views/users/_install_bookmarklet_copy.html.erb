@@ -6,7 +6,7 @@
     <br />
 
     <div class="col-md-3 well" style="text-align: center">
-      <a class="btn btn-small" href="<%= RailsBookmarklet.compile_invocation_script(create_via_bookmarklet_selections_url, {
+      <a class="btn btn-small" href="<%= RailsBookmarklet.compile_invocation_script(create_via_bookmarklet_selections_url(protocol: 'https'), {
         :error => 'Uh-oh, something went wrong.',
         :params => {
           "uri" => "'+encodeURIComponent(d.location)+'",
