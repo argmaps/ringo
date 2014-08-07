@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
   resources :selections, except: [:new, :edit, :create, :update] do
     get 'create_via_bookmarklet', :action => :create_via_bookmarklet, :on => :collection
-    get 'persist_via_bookmarklet', :action => :persist_via_bookmarklet, :on => :collection
   end
 
   resources :web_pages

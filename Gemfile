@@ -21,7 +21,7 @@ gem 'sorcery'
 gem 'request_store'
 gem 'simple_form'
 
-gem 'rails-bookmarklet', :github =>'argmaps/rails-bookmarklet', :ref => '99bb67ddbaf84779a10156196bfaccfe4de67029'
+gem 'rails-bookmarklet', :github =>'argmaps/rails-bookmarklet', :branch => 'ringo'
 gem 'zeroclipboard-rails'
 gem 'browser-timezone-rails'
 

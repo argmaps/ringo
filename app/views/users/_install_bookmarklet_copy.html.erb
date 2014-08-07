@@ -9,7 +9,8 @@
       <a class="btn btn-small" href="<%= RailsBookmarklet.compile_invocation_script(create_via_bookmarklet_selections_url, {
         :error => 'Uh-oh, something went wrong.',
         :params => {
-          "uri" => "'+encodeURIComponent(d.location)+'"
+          "uri" => "'+encodeURIComponent(d.location)+'",
+          "content" => "'+s+'"
         }
       }) %>">➜ Ringo</a>
     </div>

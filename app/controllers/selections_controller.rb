@@ -1,7 +1,7 @@
 class SelectionsController < ApplicationController
   include SelectionsHelper
   skip_before_filter :require_login, :only => [:create_via_bookmarklet]
-  skip_before_filter :verify_authenticity_token, only: [:create_via_bookmarklet, :persist_via_bookmarklet]
+  skip_before_filter :verify_authenticity_token, only: [:create_via_bookmarklet]
   before_action :set_selection, only: [:show, :destroy]
 
   # GET /selections
@@ -18,25 +18,18 @@ class SelectionsController < ApplicationController
       render_bookmarklet(:ringo_bookmarklet, 'authenticate_for_bookmarklet')
       return
     else
-      @uri = params[:uri]
-      render_bookmarklet(:ringo_bookmarklet, 'create_via_bookmarklet')
-    end
-  end
-
-  def persist_via_bookmarklet
-    adapted_params = {
-      content: params[:content],
-      web_page_attributes: {
-        uri: params[:uri]
+      adapted_params = {
+        content: params[:content],
+        web_page_attributes: {
+          uri: params[:uri]
+        }
       }
-    }
-    @selection = current_user.selections.build(adapted_params)
+      @selection = current_user.selections.build(adapted_params)
 
-    respond_to do |format|
       if @selection.save
-        format.js { render 'persist_via_bookmarklet' }
+        render_bookmarklet(:ringo_bookmarklet, 'create_via_bookmarklet')
       else
-        format.js { render 'failed_to_persist_via_bookmarklet' }
+        render_bookmarklet(:ringo_bookmarklet, 'failed_to_create_via_bookmarklet')
       end
     end
   end
@@ -52,9 +45,9 @@ class SelectionsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_selection
-      @selection = Selection.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_selection
+    @selection = Selection.find(params[:id])
+  end
 end

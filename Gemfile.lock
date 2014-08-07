@@ -1,7 +1,7 @@
 GIT
   remote: git://github.com/argmaps/rails-bookmarklet.git
-  revision: 99bb67ddbaf84779a10156196bfaccfe4de67029
-  ref: 99bb67ddbaf84779a10156196bfaccfe4de67029
+  revision: 1c15a9967fbf9dcc4db2e1234c102c2486300d47
+  branch: ringo
   specs:
     rails-bookmarklet (0.0.1)
       rails
