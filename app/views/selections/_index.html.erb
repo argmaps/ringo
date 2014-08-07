@@ -26,7 +26,11 @@
               <p id="selection-<%= selection.id %>" class="selection-content">&ldquo;<%= selection.content %>&rdquo;</p>
               <%= link_to selection.web_page.uri, selection.web_page.uri, class: 'selection-uri', target: '_blank' %></td>
             </td>
-            <td class='selection-saved-at'><%= selection.created_at.in_time_zone.strftime('%_m/%d/%y') %></td>
+            <td class='selection-saved-at'>
+              <%= selection.created_at.in_time_zone.strftime('%_m/%d/%y') %>
+              <br />
+              <%= selection.created_at.in_time_zone.strftime('%l:%M%P') %>
+            </td>
 
             <td>
               <div class="text-right">
