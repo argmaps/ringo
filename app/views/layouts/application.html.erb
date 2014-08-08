@@ -10,6 +10,7 @@
 
         <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
         <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+        <link href='//fonts.googleapis.com/css?family=Droid+Serif:400,700italic|Satisfy' rel='stylesheet' type='text/css'>
     </head>
     <body>
       <div id="outer-wrapper" class="row col-md-10 col-md-offset-1">
@@ -19,9 +20,9 @@
             <!-- application logo -->
             <%= link_to dashboard_path, class: 'navbar-brand' do %>
               <!-- application logo visible on large screens -->
-              <h1 style="color: #fff; font-size: 21px; margin: 0;" class="logo">&#8634; Ringo</h1>
+              <h1 id="ringo-brand">Ringo</h1>
               <!-- application logo visible on small screens -->
-              <h1 style="color: #fff; font-size: 21px; margin: 0;" class="logo-xs">&#8634; Ringo</h1>
+              <h1 id="ringo-brand" class="logo-xs">Ringo</h1>
             <% end %>
 
             <!-- dropdowns -->
