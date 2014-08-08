@@ -54,7 +54,6 @@ end
 group :production do
   gem 'puma'
   gem 'rack-timeout'
-  gem 'rails_12factor'
   gem 'newrelic_rpm'
   gem 'asset_sync'
 end
