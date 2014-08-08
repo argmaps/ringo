@@ -20,8 +20,8 @@ test: &test
 production:
   adapter: postgresql
   encoding: unicode
-  database: d4n8or22h6srl3
-  host: ec2-54-217-224-123.eu-west-1.compute.amazonaws.com
+  database: ringo
+  host: 163.47.61.138
   port: 5432
-  username: qgoaadkyckalph
-  password: <%= ENV['HEROKU_DATABASE_PW'] %>
+  username: app
+  password: <%= ENV['NINEFOLD_DATABASE_PW'] %>
