@@ -5,7 +5,6 @@ gem 'rails', '4.1.2'
 gem 'pg'
 gem 'activerecord-postgresql-adapter', '0.0.1'
 gem 'connection_pool'
-gem 'dalli'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'compass-rails'
