@@ -1,0 +1,44 @@
+.navbar {
+  text-align: center;
+}
+
+.navbar-brand {
+  float: none;
+}
+
+header .navbar > .nav {
+  position: absolute;
+  top: 0;
+  right: 15px;
+}
+
+header, #wrapper {
+  @include box-shadow(#{0 1px 3px rgba(0,0,0,0.7)});
+}
+
+#content {
+  margin-left: 0;
+}
+
+body.login .login-container {
+  background-color: #f2f2e2;
+}
+
+.select2-container.form-control, .select2-container-multi .select2-choices, select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .form-control, .uneditable-input {
+  background-color: #f9f9f1;
+  border: 1px solid #cbcbb6;
+  border-color: #cbcbb6;
+}
+
+body.login .login-container:before {
+  border-bottom: 10px solid #f2f2e2;
+}
+
+.btn-block {
+  background-image: inline('btn-background.png') !important;
+  color: #676758;
+
+  &:hover {
+    box-shadow: 1px 1px 1px #676758;
+  }
+}

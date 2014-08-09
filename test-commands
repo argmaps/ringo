@@ -1,0 +1,1 @@
+ruby spec/javascripts/support/compile_assets_and_run_test.rb app/assets/stylesheets/admin/layout.css.scss.erb
